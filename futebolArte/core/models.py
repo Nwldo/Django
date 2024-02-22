@@ -41,7 +41,7 @@ class Cidade(models.Model):
     estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
 
 class Clube(models.Model):
-    escudo = models.ImageField()
+    escudo = models.ImageField(null=True, upload_to='clubes')
     nome = models.CharField(max_length=100)
     ano_fundacao = models.PositiveIntegerField(default=1900)
     divisao_atual= models.CharField(max_length=50,)
@@ -58,7 +58,7 @@ class Clube(models.Model):
 
 class Jogador(models.Model):
     nome = models.CharField(max_length=100)
-    #foto = models.ImageField()
+    foto = models.ImageField(null=True, upload_to='jogadores')
     posicao_principal = models.CharField(max_length=50)
     numero_camisa = models.IntegerField()
     sexo = models.CharField(max_length=50,choices=GENERO_CHOICES, default='')
@@ -68,6 +68,7 @@ class Jogador(models.Model):
     estado = models.ForeignKey(Estado, on_delete=models.SET_NULL, null=True)
     cidade = models.ForeignKey(Cidade, on_delete=models.SET_NULL, null=True)
     clube = models.ForeignKey(Clube, on_delete=models.SET_NULL, related_name='sem_clube', null=True)
+    
 
     class Meta:
         verbose_name = 'Jagador'
@@ -101,6 +102,7 @@ class Titulo(models.Model):
     # relacionamento
     clube = models.ForeignKey(Clube, on_delete=models.SET_NULL, null=True)
     competicao = models.ForeignKey(Competicao,on_delete=models.SET_NULL, null=True)
+    
 
     class Meta:
         verbose_name = 'Título'
