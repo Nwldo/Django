@@ -1,41 +1,57 @@
 from django.db import models
 
 # Create your models here. (base de dados)
-ge = (
-        ("MA","MASCULINO"),
-        ("FE","FEMININO"),
+GENERO_CHOICES = (
+        ("",""),
+        ("M","MASCULINO"),
+        ("F","FEMININO"),
     )
+
+class Pais(models.Model):
+    nome = models.CharField(max_length=50)
+    continente = models.CharField(max_length=50)
+
+class Estado(models.Model):
+    nome = models.CharField(max_length=50)
+    regiao = models.CharField(max_length=50)
+
+#relacioanamento
+    pais = models.ForeignKey(Pais, on_delete=models.CASCADE)
+
+class Cidade(models.Model):
+    nome = models.CharField(max_length=50)
+    populacao = models.IntegerField()
+
+    #relacioanamento
+    estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
 
 class Clube(models.Model):
-    nome = models.CharField(max_length=120)
+    nome = models.CharField(max_length=100)
     ano_fundacao = models.DateField()
-    # Divisão atual
-    da = (
-        ("A","Série A"),
-        ("B","Série B"),
-        ("C","Série C"),
-        ("D","Série D"),
-        ("A","Série A"),
-    )
-    divisao_atual= models.CharField(max_length=50,choices=da, default='')
-    cidade = models.CharField(max_length=50)
-    uf = models.CharField(max_length=2)
-    pais = models.CharField(max_length=50)
-    genero = models.CharField(max_length=50,choices=ge, default='')
+    divisao_atual= models.CharField(max_length=50,)
+    genero = models.CharField(max_length=50,choices=GENERO_CHOICES, default='')
+
+    #relacioanamento
+    pais = models.ForeignKey(Pais, on_delete=models.SET_NULL, null=True)
+    estado = models.ForeignKey(Estado, on_delete=models.SET_NULL, null=True)
+    cidade = models.ForeignKey(Cidade, on_delete=models.SET_NULL, null=True)
 
 class Jogador(models.Model):
-    nome = models.CharField(max_length=120)
+    nome = models.CharField(max_length=100)
     #foto = models.ImageField(upload_to='img', blank=True, null=True, verbose_name='foto')
     posicao_principal = models.CharField(max_length=50)
     numero_camisa = models.IntegerField()
-    sexo = models.CharField(max_length=50,choices=ge, default='')
+    sexo = models.CharField(max_length=50,choices=GENERO_CHOICES, default='')
     
     # relacionamento
+    pais = models.ForeignKey(Pais, on_delete=models.SET_NULL, null=True)
+    estado = models.ForeignKey(Estado, on_delete=models.SET_NULL, null=True)
+    cidade = models.ForeignKey(Cidade, on_delete=models.SET_NULL, null=True)
     clube = models.ForeignKey(Clube, on_delete=models.SET_NULL, related_name='sem_clube', null=True)
 
 
 class Competicao(models.Model):
-    nome = models.CharField(max_length=120)
+    nome = models.CharField(max_length=100)
     # Tipos de disputas
     td = (
         ("ES", "ESTADUAL"),
