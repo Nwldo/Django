@@ -1,0 +1,61 @@
+Projeto Django
+
+criar pasta
+mkdir nomedapasta
+
+===== Ambiente virtual ===
+pip install virtualenv
+
+
+==nome===
+python -m venv venv
+
+==== Instalar o django ========
+
+pip install django
+
+- instaldo o django-admin
+django-admin --version
+
+=== Criando o Projeto =========
+
+django-admin startproject nomedoprojeto ---> dessa forma cria subpasta com mesmo nome
+
+--excluir pasta rmdir /s animal
+
+criando projeto sem subpasta
+
+django-admin startproject nomedoprojeto .
+
+===== Executar o projeto ========
+python manage.py runserver
+
+
+==== Criando app ============
+python manage.py startapp nomedoapp
+
+modificando os arquivos
+Da raiz:
+settings.py
+urls.py
+
+Do app
+criar um arquivo
+urls.py
+
+Modificar
+urls.py
+admin.py
+views.py
+models.py
+
+
+Executar os comandos
+python manage.py makemigrations
+python manage.py migrate
+
+
+Criar super usuário
+python manage.py createsuperuser
+
+
