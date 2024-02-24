@@ -109,4 +109,4 @@ class Titulo(models.Model):
         verbose_name_plural = 'Títulos'
 
     def __str__(self) -> str:
-        return self.nome
+        return self.resultado
