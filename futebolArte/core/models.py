@@ -43,7 +43,7 @@ class Cidade(models.Model):
 class Clube(models.Model):
     escudo = models.ImageField(null=True, upload_to='clubes')
     nome = models.CharField(max_length=100)
-    ano_fundacao = models.PositiveIntegerField(default=1900)
+    ano_fundacao = models.PositiveIntegerField('Ano Fundação', help_text="Ano que o Clube foi criado")
     divisao_atual= models.CharField(max_length=50,)
     genero = models.CharField(max_length=50,choices=GENERO_CHOICES, default='')
 
