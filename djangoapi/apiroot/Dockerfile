@@ -1,10 +1,9 @@
-FROM python:3.12.2-bullseye
+FROM python:3
 
 WORKDIR /home/app
 
-COPY ./requirements.txt .
-
-RUN pip install -r requirements.txt
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
