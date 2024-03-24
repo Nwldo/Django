@@ -1,16 +1,17 @@
-FROM python:3.11.6-slim-bullseye
+FROM python:3
 
-WORKDIR /home/app
+WORKDIR /usr/src/app
 
-COPY requirements.txt requirements.txt
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-# Install packages specified in requirements.txt
+ ENV PATH="/venv/bin:$PATH"
+
 RUN pip install --upgrade pip
-RUN pip install --upgrade setuptools
+RUN pip install pipenv
+COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
+COPY ./Pipfile /usr/src/app/Pipfile
 
-COPY . .
 
-EXPOSE 8000
-
-CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
+RUN apt-get update && apt-get upgrade -y && apt-get install gcc
