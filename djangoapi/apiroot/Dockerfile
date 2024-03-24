@@ -11,7 +11,7 @@ RUN pip install --upgrade pip
 RUN pip install pipenv
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
-COPY ./Pipfile /usr/src/app/Pipfile
+
 
 
 RUN apt-get update && apt-get upgrade -y && apt-get install gcc
