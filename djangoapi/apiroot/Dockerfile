@@ -10,8 +10,12 @@ ENV PYTHONUNBUFFERED 1
 RUN pip install --upgrade pip
 RUN pip install pipenv
 COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install -U -r requirements.txt
 
 
 
-RUN apt-get update && apt-get upgrade -y && apt-get install gcc
+COPY . .
+
+EXPOSE 8000
+
+CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
