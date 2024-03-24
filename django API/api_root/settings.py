@@ -81,9 +81,9 @@ DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "db_api_users",
-        "USER": "postgres",
-        "PASSWORD": "650291",
-        "HOST": "127.0.0.1",
+        "USER": "api_users",
+        "PASSWORD": "BUBaxkM5Bk3VDuEjwNY1DjWALzkXAec0",
+        "HOST": "dpg-co03t5nsc6pc738q7d90-a.ohio-postgres.render.com",
         "PORT": "5432",
     }
 }
