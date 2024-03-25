@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'api_root.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+         "ENGINE": "django.db.backends.postgresql",
+        "NAME": "db_api_users_l1fz",
+        "USER": "api_users",
+        "PASSWORD": "I4m6y8eIkLTGpbhwKTgGwKcCgSuLjwao",
+        "HOST": "dpg-co08d2da73kc73cb4ud0-a.ohio-postgres.render.com",
+        "PORT": "5432",
     }
 }
 
@@ -125,3 +129,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOW_ORIGINS = [
+    'http://localhost:8080',
+]
