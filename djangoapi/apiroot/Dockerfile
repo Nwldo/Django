@@ -1,17 +1,10 @@
-FROM python:3
+FROM python:3.12.2-bullseye
 
-WORKDIR /usr/src/app
+WORKDIR /home/app
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+COPY ./requirements.txt .
 
- ENV PATH="/venv/bin:$PATH"
-
-RUN pip install --upgrade pip
-RUN pip install pipenv
-COPY requirements.txt requirements.txt
-RUN pip install -U -r requirements.txt
-
+RUN pip3 install -r requirements.txt
 
 
 COPY . .
