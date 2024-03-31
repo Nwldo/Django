@@ -25,9 +25,9 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['eryckgym.onrender.com']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1').split(',')
 
-CSRF_TRUSTED_ORIGINS = ['https://eryckgym.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['https://eryckgymrgo.onrender.com']
 # Application definition
 
 INSTALLED_APPS = [
