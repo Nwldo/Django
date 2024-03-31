@@ -25,7 +25,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = ['eryckgym.onrender.com']
 
 CSRF_TRUSTED_ORIGINS = ['https://eryckgym.onrender.com']
 # Application definition
