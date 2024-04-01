@@ -21,7 +21,7 @@ class Aluno(models.Model):
 
 class Professor(models.Model):
     nome = models.CharField(max_length=100)
-    especialidade = age = models.CharField(max_length=100)
+    especialidade = models.CharField(max_length=100)
     treinos = models.ManyToManyField(Treino)
 
     def __str__(self):
