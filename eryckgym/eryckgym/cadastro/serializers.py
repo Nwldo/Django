@@ -4,11 +4,11 @@ from cadastro.models import Aluno, Professor
 
 class AlunoSerializer(ModelSerializer):
     class Meta:
-        model: Aluno
+        model= Aluno
         fields = '__all__'
 
 class ProfessorSerializer(ModelSerializer):
     class Meta:
-        model: Professor
+        model= Professor
         fields = ['id', 'nome', 'especialidade', 'treinos']
 
