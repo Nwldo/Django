@@ -12,8 +12,8 @@ class Aluno(models.Model):
     nome = models.CharField(max_length=100)
     sexo = models.CharField(max_length=1, choices=SEXO_CHOICES, default='N')
     idade = models.IntegerField(default=0)
-    cpf = models.IntegerField(default=0)
-    telefone = models.IntegerField(default=0)
+    cpf = models.CharField(max_length=11,default=0)
+    telefone = models.CharField(max_length=14,default=0)
     treino = models.OneToOneField(Treino, null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
