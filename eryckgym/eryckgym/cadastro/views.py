@@ -3,7 +3,7 @@ from django.http import Http404
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from cadastro.serializers import AlunoSerializer,ProfessorSerializer
+from .serializers import AlunoSerializer,ProfessorSerializer
 from cadastro.models import Aluno, Professor
 
 # CBV --> Class Based View
