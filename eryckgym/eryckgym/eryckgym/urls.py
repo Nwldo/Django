@@ -10,4 +10,6 @@ urlpatterns = [
     path('api/exercicios/<int:pk>/', ExeciciosUpdateAPIView.as_view(),),
     path('api/alunos', ListaAlunosView.as_view()),
     path('api/alunos/<int:pk>/', ListaAlunosView.as_view()),
+    path('api/professores', ListaAlunosView.as_view()),
+    path('api/professores/<int:pk>/', ListaAlunosView.as_view()),
 ]
