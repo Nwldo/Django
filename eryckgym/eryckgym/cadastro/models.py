@@ -22,7 +22,7 @@ class Aluno(models.Model):
 class Professor(models.Model):
     nome = models.CharField(max_length=100)
     especialidade = models.CharField(max_length=100)
-    treinos = models.ManyToManyField(Treino, null=True, blank=True, on_delete=models.SET_NULL)
+    treinos = models.ManyToManyField(Treino, null=True)
 
     def __str__(self):
             return f'Nome: {self.nome} | Especialidade: {self.especialidade} | Treino {self.treinos}'
